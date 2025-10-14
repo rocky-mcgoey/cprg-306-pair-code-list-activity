@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { products } from './data.js';
+import CardLayout from './card-layout.js';
 import CardItem from './card-item.js';
+
 
 export default function Home() {
   return (
@@ -18,9 +20,14 @@ export default function Home() {
             </p>
           </header>
           <div>
-            {products.map((product) => (
+            <CardLayout>
+              {products.map((product) => (
+                <CardItem key={product.id} product={product} />
+              ))}
+            </CardLayout>
+            {/* {products.map((product) => (
               <CardItem key={product.id} product={product} />
-            ))}
+            ))} */}
 
             {/* <article>
               <header>
