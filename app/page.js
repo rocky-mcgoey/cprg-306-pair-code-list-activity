@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import { products } from './data.js';
+import CardItem from './card-item.js';
+
 export default function Home() {
   return (
     <div>
@@ -15,16 +18,20 @@ export default function Home() {
             </p>
           </header>
           <div>
-            {/* TODO: Create a responsive card grid here. use the following to template your card content and style with tailwind */}
-            <article>
+            {products.map((product) => (
+              <CardItem key={product.id} product={product} />
+            ))}
+
+            {/* <article>
               <header>
-                <div>{/* IMG Goes Here */}</div>
                 <div>
                   <h3>Card Title</h3>
                   <p>
                     <strong>Card subheading</strong>
                   </p>
+                  <p>Price: </p>
                 </div>
+                <div></div>
               </header>
               <div>
                 <p>
@@ -32,12 +39,11 @@ export default function Home() {
                   Eveniet, temporibus.
                 </p>
                 <div>
-                  {/* The Link will follow up to a separate dynamic route that we'll make in a later lab */}
-                  <Link href="#">Secondary Action</Link>
-                  <button>Primary Action</button>
+                  <Link href="#">Show more</Link>
+                  <button>Add to Cart</button>
                 </div>
               </div>
-            </article>
+            </article> */}
           </div>
         </section>
       </main>
